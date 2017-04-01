@@ -28,6 +28,7 @@ extern crate shannon;
 extern crate tempfile;
 extern crate tokio_core;
 extern crate tokio_proto;
+extern crate tokio_io;
 extern crate url;
 
 pub extern crate librespot_protocol as protocol;

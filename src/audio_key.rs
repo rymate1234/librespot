@@ -32,11 +32,11 @@ impl AudioKeyManager {
                 0xd => {
                     let mut key = [0u8; 16];
                     key.copy_from_slice(data.as_ref());
-                    sender.complete(Ok(AudioKey(key)));
+                    sender.send(Ok(AudioKey(key))).unwrap();
                 }
                 0xe => {
                     warn!("error audio key {:x} {:x}", data.as_ref()[0], data.as_ref()[1]);
-                    sender.complete(Err(AudioKeyError));
+                    sender.send(Err(AudioKeyError)).unwrap();
                 }
                 _ => (),
             }
@@ -81,4 +81,3 @@ impl <T> Future for AudioKeyFuture<T> {
         }
     }
 }
-

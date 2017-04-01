@@ -116,7 +116,7 @@ impl Session {
 
             session
         });
-        
+
         Box::new(result)
     }
 

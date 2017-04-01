@@ -120,7 +120,7 @@ impl Future for AudioFileOpenStreaming {
             if id == 0x3 {
                 let size = BigEndian::read_u32(&data) as usize * 4;
                 let file = self.finish(size);
-                
+
                 return Ok(Async::Ready(file));
             }
         }
@@ -251,7 +251,7 @@ impl AudioFileFetch {
         let complete_tx = self.complete_tx.take().unwrap();
 
         output.seek(SeekFrom::Start(0)).unwrap();
-        complete_tx.complete(output);
+        complete_tx.send(output).unwrap();
     }
 }
 

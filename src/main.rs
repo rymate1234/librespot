@@ -5,6 +5,7 @@ extern crate getopts;
 extern crate librespot;
 extern crate tokio_core;
 extern crate tokio_signal;
+extern crate tokio_io;
 
 use env_logger::LogBuilder;
 use futures::{Future, Async, Poll, Stream};
@@ -14,7 +15,7 @@ use std::path::PathBuf;
 use std::process::exit;
 use std::str::FromStr;
 use tokio_core::reactor::{Handle, Core};
-use tokio_core::io::IoStream;
+use tokio_io::IoStream;
 use std::mem;
 
 use librespot::spirc::{Spirc, SpircTask};
@@ -310,4 +311,3 @@ fn main() {
 
     core.run(task).unwrap()
 }
-

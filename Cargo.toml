@@ -49,16 +49,17 @@ vorbis          = "0.1.0"
 tremor          = { git = "https://github.com/plietar/rust-tremor", optional = true }
 
 alsa            = { git = "https://github.com/plietar/rust-alsa", optional = true }
-portaudio       = { git = "https://github.com/mvdnes/portaudio-rs", optional = true }
+portaudio-rs    = { git = "https://github.com/mvdnes/portaudio-rs", optional = true }
 libpulse-sys    = { git = "https://github.com/astro/libpulse-sys", optional = true }
 
 mdns            = { git = "https://github.com/plietar/rust-mdns" }
 
 error-chain = { version = "0.9.0", default_features = false }
 futures = "0.1.8"
-tokio-core = "0.1.2"
-tokio-proto = "0.1.0"
-tokio-signal = "0.1"
+tokio-core = "0.1.6"
+tokio-proto = "0.1.1"
+tokio-signal = "0.1.2"
+tokio-io = "0.1.1"
 
 [build-dependencies]
 vergen          = "0.1.0"
@@ -66,7 +67,7 @@ protobuf_macros = { git = "https://github.com/plietar/rust-protobuf-macros", fea
 
 [features]
 alsa-backend = ["alsa"]
-portaudio-backend = ["portaudio"]
+portaudio-backend = ["portaudio-rs"]
 pulseaudio-backend = ["libpulse-sys"]
 
 with-tremor = ["tremor"]
